@@ -1,0 +1,8 @@
+{
+  "name": "Zdoda — AI Chatbots for Business",
+  "description": "Zdoda builds custom AI chatbots trained on your business: answering customers 24/7, capturing leads, and booking calls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

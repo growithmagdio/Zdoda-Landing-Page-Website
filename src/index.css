@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #FAFBFE;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-elevated-2: #F5F6FA;
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-accent: #00D4FF;
+  --color-navy: #050507;
+  --color-success: #10B981;
+  --color-text-main: #0A0F1C;
+  --color-text-body: #374151;
+  --color-text-muted: #6B7280;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+:root {
+  --bg: #FAFBFE;
+  --bg-elevated: #FFFFFF;
+  --bg-elevated-2: #F5F6FA;
+  --primary: #7C3AED;
+  --primary-dark: #6D28D9;
+  --accent: #00D4FF;
+  --navy: #050507;
+}
+
+body {
+  background-color: #FAFBFE;
+  color: #0A0F1C;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Background grid pattern - subtle Zdoda light mesh */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(124, 58, 237, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(124, 58, 237, 0.035) 1px, transparent 1px);
+}
+
+/* Subtle dark grid pattern for footer / dark CTA */
+.bg-grid-pattern-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Modal Pop In animation (perfectly centered zoom & fade) */
+@keyframes modalPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-pop {
+  animation: modalPopIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Shimmer sweep animation for buttons and badges */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+.shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: shimmerSweep 3.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Gentle continuous floating animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* Pulse glow animation for primary action rings */
+@keyframes purplePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(124, 58, 237, 0);
+  }
+}
+
+.pulse-purple-ring {
+  animation: purplePulse 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Shooting star lines */
+@keyframes shootingStar {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(200%) translateY(200%);
+    opacity: 0;
+  }
+}
+
+.shooting-star-purple {
+  position: absolute;
+  width: 150px;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.6), transparent);
+  transform: rotate(45deg);
+  animation: shootingStar 8s infinite ease-in-out;
+}
+
+.shooting-star-cyan {
+  position: absolute;
+  width: 160px;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.6), transparent);
+  transform: rotate(45deg);
+  animation: shootingStar 11s infinite ease-in-out 3s;
+}
+
+/* Gradient shimmer for highlighted text */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+/* Live status beacon pulse */
+@keyframes beaconPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.beacon-pulse {
+  animation: beaconPulse 2s infinite;
+}
+
+/* Card hover glow and smooth lift */
+.card-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px rgba(124, 58, 237, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  border-color: rgba(124, 58, 237, 0.35);
+}
+
+/* Custom scrollbar for chat */
+.chat-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.6);
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.25);
+  border-radius: 4px;
+}
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
