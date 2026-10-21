@@ -1,4 +1,4 @@
-import { PRICING_START, LAUNCH_TIME } from '../config.ts';
+import { LAUNCH_TIME } from '../config.ts';
 
 export interface ChatMessage {
   id: string;
@@ -42,7 +42,7 @@ export function matchChatIntent(input: string): ScriptedResponse {
 
   if (/price|pricing|cost|how much|fee|expensive|cheap|rate/.test(query)) {
     return {
-      text: `Custom AI chatbots start from ${PRICING_START}/month (including setup, training, hosting and monthly improvements). Our 30-minute strategy call is completely free. Would you like to pick a time?`,
+      text: "Every Zdoda chatbot is custom-built, so pricing is tailored to your requirements: your website, the questions it needs to answer, and the tools it connects to. The quickest way to get your custom quote is a free 30-minute call with me. Want to pick a time?",
       showBookingCard: true,
       chips: ["Book a Call on Calendar 📅", "What services do you offer?"]
     };
@@ -65,7 +65,7 @@ export function matchChatIntent(input: string): ScriptedResponse {
   }
 
   return {
-    text: "Great question! I'm an automated assistant. On your 30-minute strategy call, we'll design a custom chatbot tailored exactly to your business questions and pricing.",
+    text: "Great question! I'm an automated assistant. On your 30-minute strategy call, we'll design a custom chatbot tailored exactly to your business.",
     chips: ["Book a Call on Calendar 📅", "What services do you offer?", "How do I book a call?"]
   };
 }

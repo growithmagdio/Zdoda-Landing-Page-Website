@@ -45,3 +45,13 @@ npm run build
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
 4. Deploy!
+
+## AI chat (Gemini)
+
+The chat widget calls `api/chat.ts`, a Vercel serverless function that talks to Gemini.
+
+- Set `GEMINI_API_KEY` in **Vercel → Project → Settings → Environment Variables**, then redeploy.
+- Optional: `GEMINI_MODEL` to change the model (default `gemini-3.5-flash-lite`, fallback `gemini-3.8-flash`).
+- Never put the key in the frontend code or commit it. `.env` files are git-ignored.
+- If the key is missing or Gemini fails, the widget falls back to the scripted replies in `src/utils/chatEngine.ts`.
+- The assistant never quotes prices: the prompt forbids it and the function replaces any reply containing a price.

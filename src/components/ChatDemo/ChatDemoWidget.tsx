@@ -14,6 +14,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { matchChatIntent, generateTimestamp, ChatMessage } from '../../utils/chatEngine.ts';
+import { askAI } from '../../utils/aiChat.ts';
 import { useBooking } from '../../context/BookingContext.tsx';
 
 interface ChatDemoWidgetProps {
@@ -108,11 +109,8 @@ export const ChatDemoWidget: React.FC<ChatDemoWidgetProps> = ({
     setInputText('');
     setIsTyping(true);
 
-    const delay = isAutoplay ? 900 : Math.floor(Math.random() * 400) + 700;
-
-    setTimeout(() => {
+    const addBotReply = (reply: { text: string; chips?: string[]; showBookingCard?: boolean }) => {
       setIsTyping(false);
-      const reply = matchChatIntent(text);
       const botMsg: ChatMessage = {
         id: `bot-${Date.now()}`,
         sender: 'bot',
@@ -122,7 +120,36 @@ export const ChatDemoWidget: React.FC<ChatDemoWidgetProps> = ({
         showBookingCard: reply.showBookingCard,
       };
       setMessages((prev) => [...prev, botMsg]);
-    }, delay);
+    };
+
+    // Hero autoplay always uses the scripted demo replies.
+    if (isAutoplay) {
+      setTimeout(() => addBotReply(matchChatIntent(text)), 900);
+      return;
+    }
+
+    // Real visitors: ask Gemini through /api/chat, fall back to scripted replies on any failure.
+    const history = [...messages, userMsg]
+      .filter((m) => m.id !== 'greeting' && !m.id.startsWith('greeting-'))
+      .slice(-10)
+      .map((m) => ({ role: m.sender, text: m.text }));
+    const startedAt = Date.now();
+
+    askAI(history)
+      .then((ai) => {
+        const wait = Math.max(0, 600 - (Date.now() - startedAt)); // keep the typing dots visible briefly
+        setTimeout(() => {
+          if (ai) {
+            addBotReply({
+              text: ai.reply,
+              showBookingCard: ai.showBookingCard,
+              chips: ai.showBookingCard ? ['Book a Call on Calendar 📅'] : ['Book a Call on Calendar 📅', 'What services do you offer?'],
+            });
+          } else {
+            addBotReply(matchChatIntent(text));
+          }
+        }, wait);
+      });
   };
 
   const handleResetConversation = () => {

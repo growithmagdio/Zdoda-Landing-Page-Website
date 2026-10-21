@@ -20,7 +20,8 @@ test('matches booking intent and shows calendar booking trigger', () => {
 
 test('matches pricing intent correctly', () => {
   const result = matchChatIntent('how much does this cost?');
-  assert.match(result.text, /Custom AI chatbots start from/);
+  assert.match(result.text, /tailored to your requirements/);
+  assert.doesNotMatch(result.text, /\$\d/);
   assert.equal(result.showBookingCard, true);
 });
 

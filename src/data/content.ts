@@ -19,7 +19,7 @@ import {
   MessageSquare,
   UserCheck
 } from 'lucide-react';
-import { PRICING_START, LAUNCH_TIME, CONTACT_EMAIL, CONTACT_PHONE } from '../config.ts';
+import { LAUNCH_TIME, CONTACT_EMAIL, CONTACT_PHONE } from '../config.ts';
 
 export const NAV_LINKS = [
   { label: 'How it works', href: '#how' },
@@ -316,7 +316,7 @@ export const CALL_OFFER_CONTENT = {
     'Demonstration of automated lead qualification and calendar booking',
     'Clear fixed-price proposal and fast 7-day launch roadmap',
   ],
-  pricingLine: `Custom implementations from ${PRICING_START}/month. Setup, training, hosting and continuous improvements included.`,
+  pricingLine: 'Custom pricing for your requirements. Setup, training, hosting and continuous improvements included. Get your quote on the call.',
   subline: '🔒 100% free consultation · Pick your local timezone · No credit card or commitment required.',
 };
 
@@ -351,7 +351,7 @@ export const FAQ_LIST = [
   },
   {
     question: 'What does it cost?',
-    answer: `Custom plans start from ${PRICING_START}/month, which includes ongoing maintenance, hosting, and monthly refinements. The 30-minute discovery call is completely free.`,
+    answer: 'Every chatbot is custom-built, so pricing depends on your requirements: your website, the questions it needs to handle, and the tools it connects to. Book a free 30-minute call with me and you will get a clear custom quote.',
   },
 ];
 
