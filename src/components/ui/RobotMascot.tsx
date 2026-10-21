@@ -7,7 +7,7 @@ interface RobotMascotProps {
 }
 
 export const RobotMascot: React.FC<RobotMascotProps> = ({
-  speechBubbleText = "Hi! I'm Zoya from [Your Business]. Ask me anything!",
+  speechBubbleText = "Hi! I'm Zoya from Zdoda. Ask me anything!",
   size = 'md',
   showBubble = true,
 }) => {

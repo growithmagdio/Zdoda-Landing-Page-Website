@@ -43,7 +43,7 @@ export const HERO_CONTENT = {
     'Zero sales pressure',
     'Custom AI roadmap for your website',
   ],
-  mascotGreeting: "Hi! I'm Zoya from [Your Business]. Ask me anything!",
+  mascotGreeting: "Hi! I'm Zoya from Zdoda. Ask me anything!",
   mascotQuickReplies: [
     'What services do you offer?',
     'Which areas do you serve?',

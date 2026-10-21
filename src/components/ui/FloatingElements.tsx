@@ -66,7 +66,7 @@ export const FloatingElements: React.FC = () => {
           <ChatDemoWidget
             isHero={false}
             onClose={() => setIsChatPopupOpen(false)}
-            className="w-[360px] sm:w-[390px] h-[560px] shadow-2xl border border-slate-200/90 rounded-2xl"
+            className="w-[min(390px,calc(100vw-2rem))]! h-[min(560px,calc(100dvh-8rem))]! shadow-2xl border border-slate-200/90 rounded-2xl"
           />
         </div>
       )}

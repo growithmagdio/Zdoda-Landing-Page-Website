@@ -37,7 +37,7 @@ export const ChatDemoWidget: React.FC<ChatDemoWidgetProps> = ({
     {
       id: 'greeting',
       sender: 'bot',
-      text: "Hi there! I'm Zoya from [Your Business]. How can I help you today?",
+      text: "Hi there! I'm Zoya from Zdoda. How can I help you today?",
       timestamp: 'Just now',
       chips: [
         'What services do you offer?',
@@ -131,7 +131,7 @@ export const ChatDemoWidget: React.FC<ChatDemoWidgetProps> = ({
       {
         id: `greeting-${Date.now()}`,
         sender: 'bot',
-        text: "Hi there! I'm Zoya from [Your Business]. How can I help you today?",
+        text: "Hi there! I'm Zoya from Zdoda. How can I help you today?",
         timestamp: 'Just now',
         chips: [
           'What services do you offer?',
@@ -164,7 +164,7 @@ export const ChatDemoWidget: React.FC<ChatDemoWidgetProps> = ({
                 </div>
                 <div>
                   <h4 className="font-bold text-base text-white leading-none">
-                    [Your Business]
+                    Zdoda
                   </h4>
                   <span className="text-xs text-purple-200 font-medium">Virtual Assistant</span>
                 </div>
@@ -347,7 +347,7 @@ export const ChatDemoWidget: React.FC<ChatDemoWidgetProps> = ({
               <div className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-100 text-[#7C3AED] mb-1">
                 <Sparkles className="w-4 h-4" />
               </div>
-              <h4 className="text-xs font-bold text-[#0A0F1C]">[Your Business] Assistant</h4>
+              <h4 className="text-xs font-bold text-[#0A0F1C]">Zdoda Assistant</h4>
               <p className="text-[11px] text-slate-500">Answers instantly 24/7 · Books calls directly</p>
             </div>
 
