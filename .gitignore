@@ -12,3 +12,4 @@ coverage/
 *.zip
 public/assets/aistudio/*.md
 public/assets/aistudio/*.pdf
+.vercel

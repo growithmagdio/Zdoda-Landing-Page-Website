@@ -8,6 +8,9 @@
  */
 import { GoogleGenAI } from '@google/genai';
 
+// Minimal typing for Node's process.env (avoids needing @types/node in the function build).
+declare const process: { env: Record<string, string | undefined> };
+
 // Primary model first, then a fallback. Override with GEMINI_MODEL in Vercel if needed.
 const MODELS = [process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite', 'gemini-3.8-flash'];
 
