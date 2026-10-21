@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-[#7C3AED]" />
-                <a href={`tel:${FOOTER_CONTENT.contact.phone}`} className="hover:text-white transition-colors">
+                <a href={`tel:${FOOTER_CONTENT.contact.phone.replace(/\s/g, '')}`} className="hover:text-white transition-colors">
                   {FOOTER_CONTENT.contact.phone}
                 </a>
               </div>

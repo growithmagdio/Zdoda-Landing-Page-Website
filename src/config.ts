@@ -11,9 +11,9 @@ export const PRICING_START = "$199";
 export const DEMO_READY_TIME = "24 hours";
 export const LAUNCH_TIME = "7 days";
 
-export const CONTACT_EMAIL = "contact@zdoda.com";
-export const CONTACT_PHONE = "+1 (800) 840-ZDODA";
-export const CONTACT_WHATSAPP = "+18008409363";
+export const CONTACT_EMAIL = "zdoda.ai@gmail.com";
+export const CONTACT_PHONE = "+91 88388 87303";
+export const CONTACT_WHATSAPP = "+918838887303";
 
 export const PROOF_ASSETS = {
   demoVideo: "/assets/aistudio/AI__Chatbot__df391683.mp4",
